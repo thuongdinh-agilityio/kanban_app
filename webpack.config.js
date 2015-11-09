@@ -31,13 +31,6 @@ var common = {
         loaders: ['babel'],
         include: APP_PATH
       }
-    ],
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['eslint', 'jscs'],
-        include: APP_PATH
-      } 
     ]
   },
   plugins: [
