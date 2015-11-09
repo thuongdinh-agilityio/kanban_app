@@ -1,5 +1,5 @@
 import React from 'react/addons';
-import TestBackend from 'react-dnd/modules/backends/Test'; 
+import TestBackend from 'react-dnd-test-backend'; 
 import {DragDropContext} from 'react-dnd';
 import assert from 'assert';
 import Note from 'app/components/Note.jsx';
@@ -26,6 +26,6 @@ function wrapInTestContext(DecoratedComponent) {
       return <DecoratedComponent {...this.props} />;
     } 
   }
-  
+
   return TestContextContainer; 
 }
