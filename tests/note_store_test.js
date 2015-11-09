@@ -5,6 +5,10 @@ import NoteStore from 'app/stores/NoteStore';
 import alt from 'app/libs/alt';
 
 describe('NoteStore', () => {
+  beforeEach(() => {
+    alt.flush();
+  });
+  
   it('creates notes', () => {
     const task = 'test';
 
