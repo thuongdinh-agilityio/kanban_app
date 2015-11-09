@@ -2,8 +2,10 @@ var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
-var pkg = require('./package.json');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var Clean = require('clean-webpack-plugin');
+
+var pkg = require('./package.json');
 
 var TARGET = process.env.npm_lifecycle_event;
 var ROOT_PATH = path.resolve(__dirname);
@@ -23,11 +25,6 @@ var common = {
   },
   module: {
     loaders: [
-      {
-        test: /\.css$/,
-        loaders: ['style', 'css'],
-        include: APP_PATH
-      },
       {
         test: /\.jsx?$/,
         loaders: ['babel'],
@@ -51,6 +48,15 @@ if(TARGET === 'start' || !TARGET) {
       inline: true,
       progress: true
     },
+    module: {
+      loaders: [ 
+        {
+          test: /\.css$/,
+          loaders: ['style', 'css'],
+          include: APP_PATH
+        } 
+      ]
+    },
     plugins: [
       new webpack.HotModuleReplacementPlugin()
     ]
@@ -68,8 +74,18 @@ if(TARGET === 'build') {
       filename: '[name].[chunkhash].js?'
     },
     devtool: 'source-map',
+    module: {
+      loaders: [ 
+        {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract('style', 'css'),
+          include: APP_PATH
+        } 
+      ]
+    },
     plugins: [
       new Clean(['build']),
+      new ExtractTextPlugin('styles.[chunkhash].css'),
       new webpack.optimize.CommonsChunkPlugin(
         'vendor',
         '[name].[chunkhash].js'
