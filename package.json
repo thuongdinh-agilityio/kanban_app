@@ -42,10 +42,13 @@
     "webpack-merge": "^0.1.2"
   },
   "dependencies": {
-    "alt": "^0.17.8",
+    "alt": "^0.17.4",
+    "alt-container": "^1.0.0",
     "array.prototype.findindex": "^1.0.0",
     "node-uuid": "^1.4.3",
-    "react": "^0.13.3",
-    "react-dnd": "^1.1.8"
+    "react": "^0.14.0",
+    "react-dnd": "^2.0.0",
+    "react-dnd-html5-backend": "^2.0.0",
+    "react-dom": "^0.14.0"
   }
 }
