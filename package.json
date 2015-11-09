@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server",
-    "stats": "webpack --profile --json > stats.json"
+    "stats": "webpack --profile --json > stats.json",
+    "test": "karma start",
+    "tdd": "karma start --auto-watch --no-single-run"
   },
   "keywords": [
     "webpack",
