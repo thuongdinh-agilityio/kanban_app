@@ -3,7 +3,7 @@ import uuid from 'node-uuid';
 import AltContainer from 'alt/AltContainer';
 import React from 'react';
 import {DragDropContext} from 'react-dnd';
-import HTML5Backend from 'react-dnd/modules/backends/HTML5';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 import Lanes from './Lanes.jsx';
 import LaneActions from '../actions/LaneActions';
